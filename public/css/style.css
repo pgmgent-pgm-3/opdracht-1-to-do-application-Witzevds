@@ -1,3 +1,71 @@
 * {
-  background-color: rgb(8, 0, 255);
+  font-family: "Ubuntu Mono", monospace;
+}
+
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: rgb(32, 32, 32);
+  color: white;
+  padding: 1rem;
+}
+.left-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.left-header img {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  color: rgba(255, 255, 255, 0.639);
+}
+/* SIDEBAR */
+.side-bar {
+  display: flex;
+  flex-direction: column;
+}
+.side-bar h2 {
+  margin-bottom: 2rem;
+}
+.side-bar button {
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.599);
+}
+.side-bar button p {
+  padding: 0.4rem 0 0.4rem 0;
+}
+.side-bar button p:hover {
+  background-color: rgba(102, 0, 255, 0.084);
+  color: rgb(89, 0, 255);
+}
+.side-container {
+  padding-top: 2rem;
+  width: 20vw;
+  height: 95vh;
+  background-color: rgb(32, 32, 32);
+  border: solid 1px rgb(124, 124, 137);
+}
+
+/* MAIN PAGE */
+.main-container {
+  padding-top: 2rem;
+  background-color: rgb(20, 19, 19);
+  border: solid 1px rgb(124, 124, 137);
+  width: 100%;
+}
+.main-page {
+  margin: 1rem;
+}
+input {
+  min-width: 90%;
 }
