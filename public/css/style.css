@@ -66,6 +66,48 @@ main {
 .main-page {
   margin: 1rem;
 }
-input {
-  min-width: 90%;
+.text {
+  width: 100%;
+}
+.form-wrap {
+  display: flex;
+  padding-bottom: 0.3rem;
+}
+.what-is-task {
+  padding-bottom: 3rem;
+}
+.submit-button {
+  background-color: rgb(76, 0, 255);
+  border: none;
+  min-width: 4rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  color: white;
+}
+.tasks img,
+.tasks-done img {
+  max-width: 1rem;
+}
+.bin {
+  background-color: rgba(255, 0, 0, 0.733);
+  border: none;
+  padding: 0.3rem;
+}
+.edit {
+  background-color: rgb(76, 0, 255);
+  border: none;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+.tasks {
+  padding-bottom: 3rem;
+}
+.main-page h2 {
+  margin-bottom: 1rem;
+}
+.check {
+  background-color: green;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  min-width: 1.5rem;
 }
