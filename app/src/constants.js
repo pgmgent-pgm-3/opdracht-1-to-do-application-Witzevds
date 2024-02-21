@@ -5,7 +5,7 @@ dotenv.config();
 
 //constants for the paths
 export const SOURCE_PATH = path.resolve("src");
-export const VIEWS_PATH = path.resolve("views");
+export const VIEWS_PATH = path.resolve(SOURCE_PATH, "views");
 export const PUBLIC_PATH = path.resolve("public");
 
 //export portnumber
