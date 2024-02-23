@@ -5,6 +5,7 @@ dotenv.config();
 import { create } from "express-handlebars";
 import { PORT, SOURCE_PATH, VIEWS_PATH } from "./constants.js";
 import { dinosaurs, home } from "./controllers/PagesController.js";
+import { index, show } from "./controllers/DinoController.js";
 
 //create an instance of express
 const app = express();
@@ -31,7 +32,8 @@ app.get("/", (req, res) => {
 });
 app.get("/thisisatest", home);
 
-app.get("/dinosaurs", dinosaurs);
+app.get("/dinosaurs", index);
+app.get("/dinosaurs:slug", show);
 
 //start the server on port
 app.listen(PORT, () => {
