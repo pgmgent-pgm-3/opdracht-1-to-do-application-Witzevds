@@ -6,6 +6,7 @@ import { create } from "express-handlebars";
 import { PORT, SOURCE_PATH, VIEWS_PATH } from "./constants.js";
 import { dinosaurs, home } from "./controllers/PagesController.js";
 import { index, show } from "./controllers/DinoController.js";
+import HandlebarsHelpers from "./lib/HandlebarsHelpers.js";
 
 //create an instance of express
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.static("public"));
 const hbs = create({
   extname: ".hbs",
   defaultLayout: "main",
+  helpers: HandlebarsHelpers,
 });
 // set handlebars as the view engine
 app.engine("hbs", hbs.engine);
@@ -33,7 +35,7 @@ app.get("/", (req, res) => {
 app.get("/thisisatest", home);
 
 app.get("/dinosaurs", index);
-app.get("/dinosaurs:slug", show);
+app.get("/dinosaurs/:slug", show);
 
 //start the server on port
 app.listen(PORT, () => {

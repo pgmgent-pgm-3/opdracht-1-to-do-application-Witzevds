@@ -21,7 +21,9 @@
   width: 2rem;
   height: 2rem;
 }
-
+.dino {
+  color: black;
+}
 /* MAIN */
 main {
   display: flex;
@@ -110,4 +112,13 @@ main {
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   min-width: 1.5rem;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+.primary {
+  color: red;
 }

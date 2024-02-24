@@ -1,7 +1,7 @@
 export const home = (req, res) => {
   const data = {
     title: "ID",
-
+    navItem,
     names: ["John", "Jane", "Doe"],
     hobbies: ["Reading", "Coding", "Gaming", "Singing"],
     person: {

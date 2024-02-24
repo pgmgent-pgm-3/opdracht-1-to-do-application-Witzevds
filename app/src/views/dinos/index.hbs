@@ -1,0 +1,25 @@
+
+<h1>Dino's</h1>
+{{#each navItem}}
+  <h1>{{url}}</h1>
+  {{#noop}} Dit doet niet {{/noop}}
+{{/each}}
+{{#each dinosaurs}}
+ <h2>{{name}}</h2> 
+ <li{{#if isHerbivore}} class="green" {{else}} class="red">
+  {{#bold}}<p>herbivore</p>{{/bold}}
+ </li> 
+      
+    
+ {{/if}}
+ {{#unless isHerbivore}}
+  <p>carnivore</p>
+ {{/unless}}
+ <a href="/dinosaurs/{{slug}}">Meer informatie</a>
+ 
+
+{{/each}}
+
+
+
+{{> footer}}
