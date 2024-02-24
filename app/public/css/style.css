@@ -1,7 +1,9 @@
 * {
   font-family: "Ubuntu Mono", monospace;
 }
-
+h4 {
+  color: black;
+}
 .header-wrap {
   display: flex;
   justify-content: space-between;
@@ -47,6 +49,10 @@ main {
   padding: 0.4rem 0 0.4rem 0;
 }
 .side-bar button p:hover {
+  background-color: rgba(102, 0, 255, 0.084);
+  color: rgb(89, 0, 255);
+}
+.side-bar button a:hover {
   background-color: rgba(102, 0, 255, 0.084);
   color: rgb(89, 0, 255);
 }

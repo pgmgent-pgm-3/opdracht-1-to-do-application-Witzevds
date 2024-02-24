@@ -12,12 +12,12 @@ export default {
     //its more safe
     return new Handlebars.SafeString(`<strong> ${content} </strong>`);
   },
-  button: function (className, type, options) {
-    return new Handlebars.SafeString(
-      `<button class="${className}" type="${type}">${options.fn(this)}</button>`
-    );
+  button: function (options) {
+    return new Handlebars.SafeString(`<button>${options.fn(this)}</button>`);
   },
   hyperlink: function (url, label) {
-    return new Handlebars.SafeString(`<a href='${url}'>${label}</a>`);
+    return new Handlebars.SafeString(
+      `<a href='${url}'><button><p>${label}</p></button></a>`
+    );
   },
 };

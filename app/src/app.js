@@ -4,8 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import { create } from "express-handlebars";
 import { PORT, SOURCE_PATH, VIEWS_PATH } from "./constants.js";
-import { dinosaurs, home } from "./controllers/PagesController.js";
-import { index, show } from "./controllers/DinoController.js";
+import { categories, index, show } from "./controllers/PageController.js";
 import HandlebarsHelpers from "./lib/HandlebarsHelpers.js";
 
 //create an instance of express
@@ -29,13 +28,12 @@ app.set("views", VIEWS_PATH); //location of handlebars files
 //---------------------------------------------End of Handlebars---------------------------------------------
 
 //GET route to serve the index.html file
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve("src", "views", "index.html"));
-});
-app.get("/thisisatest", home);
-
-app.get("/dinosaurs", index);
-app.get("/dinosaurs/:slug", show);
+// app.get("/", (req, res) => {
+//   res.sendFile(path.resolve("src", "views", "index.html"));
+// });
+app.get("/", index);
+app.get("/household", show);
+app.get("/categories", categories);
 
 //start the server on port
 app.listen(PORT, () => {
