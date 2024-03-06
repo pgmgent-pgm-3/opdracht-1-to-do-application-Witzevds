@@ -12,3 +12,5 @@ export const show = (req, res) => {
 export const categories = (req, res) => {
   res.render("pages/categories");
 };
+
+export const home = async (req, res) => {};
