@@ -4,8 +4,10 @@ import dotenv from "dotenv";
 dotenv.config();
 import { create } from "express-handlebars";
 import { PORT, SOURCE_PATH, VIEWS_PATH } from "./constants.js";
-import { categories, index, show } from "./controllers/PageController.js";
+import { index } from "./controllers/PageController.js";
 import HandlebarsHelpers from "./lib/HandlebarsHelpers.js";
+import bodyParser from "body-parser";
+import { submit } from "./controllers/api/controller.js";
 
 //create an instance of express
 const app = express();
@@ -13,6 +15,12 @@ const app = express();
 //server static files from the public folder
 //they can be accessed from the root of the site
 app.use(express.static("public"));
+
+/**
+ * body parser middleware
+ */
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //---------------------------------------------Handlebars Configuration---------------------------------------------
 //handlebars instance
@@ -32,8 +40,7 @@ app.set("views", VIEWS_PATH); //location of handlebars files
 //   res.sendFile(path.resolve("src", "views", "index.html"));
 // });
 app.get("/", index);
-app.get("/household", show);
-app.get("/categories", categories);
+app.post("/api/tasks", submit);
 
 //start the server on port
 app.listen(PORT, () => {

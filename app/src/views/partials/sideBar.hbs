@@ -1,14 +1,11 @@
 <div class="side-container">
   <div class="side-bar">
-      {{#hyperlink "/categories" "Categories" }}
+    <h1>Categories</h1>
+    {{#each categorieItems}}
+
+ <a href="">{{this.category}}</a>
+    {{/each}}
  
-    {{/hyperlink}}
-  {{#hyperlink "/" "Default" }}
- 
-    {{/hyperlink}}
-    {{#hyperlink "/household" "Household" }}
- 
-    {{/hyperlink}}
 
   </div>
 </div>

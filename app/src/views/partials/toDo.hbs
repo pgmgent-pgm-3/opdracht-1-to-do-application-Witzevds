@@ -1,10 +1,11 @@
-<div class="what-is-task">
-  <h2>We've got things to do</h2>
-  {{> lijstElement}}
-  </form>
+{{#each taskItems}}
+  {{#unless this.completed}}
+  <div class="to-do no-round">
+  <button><img class="check" src="/img/Check Vector Icon.svg" alt=""></button>
+  <input class="text" type="text" id="textInput" name="textInput" placeholder="{{this.label}}">
+  <button><img class="edit" src="/img/Edit Cover.svg" alt=""></button>
+  <button><img class="bin" src="/img/Bin Delete Recycle.svg" alt=""></button>
+
 </div>
-<div class="tasks">
-  {{> lijstElement}}
-</div>
-{{> lijstElement}}
-</div>
+{{/unless}}
+{{/each}}

@@ -4,6 +4,10 @@
 h4 {
   color: black;
 }
+img {
+  width: 2rem;
+  height: 2rem;
+}
 .header-wrap {
   display: flex;
   justify-content: space-between;
@@ -73,39 +77,69 @@ main {
 }
 .main-page {
   margin: 1rem;
+  padding-left: 4rem;
 }
-.text {
-  width: 100%;
-}
-.form-wrap {
+
+.to-do {
+  width: 90%;
   display: flex;
-  padding-bottom: 0.3rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.to-do button {
+  border: none; /* Verwijder de standaard knoprand */
+  background-color: transparent; /* Maak de achtergrond transparant */
+  margin: 0; /* Verwijder de standaard knopmarges */
+  padding: 0;
+  cursor: pointer; /* Stel een cursor in die aangeeft dat de knop klikbaar is */
+}
+
+.to-do button:focus {
+  outline: none; /* Verwijder de standaard focusstijl */
+}
+.to-do input {
+  width: 95%;
+  padding: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 .what-is-task {
   padding-bottom: 3rem;
 }
+
 .submit-button {
   background-color: rgb(76, 0, 255);
   border: none;
-  min-width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   color: white;
 }
+.no-round input {
+  border-radius: 0;
+}
 .tasks img,
-.tasks-done img {
-  max-width: 1rem;
+.tasks-done img,
+.to-do img {
+  min-width: 5%;
+  height: 100%;
+  height: 3rem;
+  padding: 0.2rem;
 }
 .bin {
   background-color: rgba(255, 0, 0, 0.733);
   border: none;
   padding: 0.3rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 .edit {
   background-color: rgb(76, 0, 255);
   border: none;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
 }
 .tasks {
   padding-bottom: 3rem;
@@ -117,7 +151,6 @@ main {
   background-color: green;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
-  min-width: 1.5rem;
 }
 .green {
   color: green;
