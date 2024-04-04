@@ -8,17 +8,7 @@ let doneContainer$ = document.querySelector(".tasks-done");
 
 if (submitButton$) {
   submitButton$.addEventListener("click", async () => {
-    console.log("add-item!");
-    const submit = document.getElementById("textInput").value;
-    console.log(submit);
-    const data = { label: submit };
-    console.log(data);
-
-    await fetch("http://localhost:3000/api/tasks", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    console.log("submit-item!");
   });
 }
 if (deleteButton$) {

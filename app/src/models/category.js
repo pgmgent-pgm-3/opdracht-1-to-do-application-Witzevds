@@ -15,12 +15,11 @@ class categorieItems extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["name"],
+      required: ["category"],
       properties: {
-        id: { type: "string", minLength: 1, maxLength: 255 },
-        name: { type: "string", minLength: 1, maxLength: 255 },
-        completed: { type: "boolean" },
+        id: { type: "integer" },
         category: { type: "string", minLength: 1, maxLength: 255 },
+        completed: { type: "boolean" },
       },
     };
   }

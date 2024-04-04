@@ -3,9 +3,9 @@ import { Model } from "objection";
 
 Model.knex(knex);
 
-class taskItems extends Model {
+class categorieItems extends Model {
   static get tableName() {
-    return "tasks";
+    return "users";
   }
 
   static get idColumn() {
@@ -15,15 +15,14 @@ class taskItems extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["label"],
       properties: {
         id: { type: "integer" },
-        label: { type: "string", minLength: 1, maxLength: 255 },
-        category: { type: "string", minLength: 1, maxLength: 255 },
-        completed: { type: "boolean" },
+        username: { type: "string", minLength: 1, maxLength: 255 },
+        email: { type: "string", minLength: 1, maxLength: 255 },
+        password: { type: "string", minLength: 1, maxLength: 255 },
       },
     };
   }
 }
 
-export default taskItems;
+export default categorieItems;

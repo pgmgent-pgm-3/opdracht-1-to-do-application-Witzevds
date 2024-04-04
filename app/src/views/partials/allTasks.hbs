@@ -1,12 +1,45 @@
 <div class="what-is-task">
-  <h2>We've got things to do</h2>
   {{> whatToDo}}
-
+  <h2>We've got things to do</h2>
+  {{#each taskItems}}
+  {{#unless this.completed}}
+  <div class="to-do no-round">
+    <div class="test">
+  <form class="check" action="/tasks/{{this.id}}"  method="POST">
+    <input type="hidden" name="method" value="PUT">
+    <button type="submit"><img class="check" src="/img/Check Vector Icon.svg" alt=""></button>
+  </form>
+  <form class="group" action="/tasks/{{this.id}}" method="POST">
+    <input type="hidden" name="method" value="PATCH">
+    <input class="text" type="text" id="textInput" name="label" placeholder="{{this.label}}">
+    <button class="edit" type="submit"><img class="edit" src="/img/Edit Cover.svg" alt=""></button>
+  </form>
+  <form class="bin" action="/tasks/{{this.id}}" method="POST">
+    <input type="hidden" name="method" value="DELETE">
+    <button type="submit"><img class="bin" src="/img/Bin Delete Recycle.svg" alt=""></button>
+  </form>
+  </div>
 </div>
-<h2>To Do</h2>
-
-{{> toDo}}
-<div class="tasks-done">
-  <h2>Things you`ve done!</h2>
-  {{> done}}
+{{/unless}}
+{{/each}}
 </div>
+<h2>Done</h2>
+{{#each taskItems}}
+{{#if this.completed}}
+<div class="to-do no-round">
+  <div class="test">
+
+  <form class="group" action="/tasks/{{this.id}}" method="POST">
+    <input type="hidden" name="method" value="PATCH">
+    <input class="text" type="text" id="textInput" name="label" placeholder="{{this.label}}">
+    <button type="submit"><img class="edit" src="/img/Edit Cover.svg" alt=""></button>
+  </form>
+
+  <form class="bin" action="/tasks/{{this.id}}" method="POST">
+    <input type="hidden" name="method" value="DELETE">
+    <button type="submit"><img class="bin" src="/img/Bin Delete Recycle.svg" alt=""></button>
+  </form>
+  </div>
+</div>
+{{/if}}
+{{/each}}

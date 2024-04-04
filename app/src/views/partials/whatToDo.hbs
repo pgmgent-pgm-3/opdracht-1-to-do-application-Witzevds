@@ -1,5 +1,11 @@
 <div class="to-do">
-    <input class="text" type="text" id="textInput" name="textInput" placeholder="What is your task?">
-  <div class="submit-button"><p>+</p></div> 
+
+  <form class="what-to-do" action="/tasks" method="POST">
+  <input type="hidden" name="method" value="POST">
+    <input type="text" name="label" class="input" placeholder="What is your task?">
+    <input type="text" name="category" placeholder="What is your category?">
+    
+  <button type="submit" class="submit-button">+</button> 
+  </form>
 
 </div>

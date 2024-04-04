@@ -5,10 +5,34 @@ dotenv.config();
 import { create } from "express-handlebars";
 import { PORT, SOURCE_PATH, VIEWS_PATH } from "./constants.js";
 import { index } from "./controllers/PageController.js";
+import {
+  register,
+  postRegister,
+  postLogin,
+  login,
+  logout,
+} from "./controllers/authController.js";
 import HandlebarsHelpers from "./lib/HandlebarsHelpers.js";
 import bodyParser from "body-parser";
-import { submit } from "./controllers/api/controller.js";
 
+// API controllers
+import {
+  getTasksApi,
+  getTaskApi,
+  createTaskApi,
+  deleteTaskApi,
+  updateTaskApi,
+} from "./controllers/api/taskController.js";
+import {
+  getCategories,
+  getCategory,
+  createCategory,
+  deleteCategory,
+} from "./controllers/api/categoryController.js";
+
+// Controllers
+import { createTask, handleForm } from "./controllers/tasksController.js";
+import jwtAuth from "./middleware/jwtAuth.js";
 //create an instance of express
 const app = express();
 
@@ -39,10 +63,38 @@ app.set("views", VIEWS_PATH); //location of handlebars files
 // app.get("/", (req, res) => {
 //   res.sendFile(path.resolve("src", "views", "index.html"));
 // });
-app.get("/", index);
-app.post("/api/tasks", submit);
 
-//start the server on port
+app.post("/tasks", createTask);
+app.post("/tasks/:id", handleForm);
+app.post("/login", postLogin, login);
+app.post("/register", postRegister, register);
+
+app.get("/", index);
+app.get("/register", register);
+app.get("/login", login);
+app.get("/logout", logout);
+/**
+ * API routes
+ */
+//GET
+app.get("/api/tasks/:id", getTaskApi);
+app.get("/api/tasks", getTasksApi);
+app.get("/api/categories/:id", getCategory);
+app.get("/api/categories", getCategories);
+//POST
+app.post("/api/tasks", createTaskApi);
+app.post("/api/categories", createCategory);
+//DELETE
+app.delete("/api/tasks/:label", deleteTaskApi);
+app.delete("/api/categories/:id", deleteCategory);
+//UPDATE
+app.put("/api/tasks/:label", updateTaskApi);
+
+/**
+ * TASK routes
+ */
+
+//PORT
 app.listen(PORT, () => {
   console.log(`server started ${PORT}`);
 });

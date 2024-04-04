@@ -4,6 +4,11 @@
         <img src="/img/logo 2.png" alt="">
         <h1>Just Do IT</h1>
       </div>
-      <p>Logout</p>
+      {{#if jwtAuth}}
+                    <a href="/logout"><button>Logout</button></a>
+                {{else}}
+                    <a href="/login"><button>Login</button></a>
+                    <a href="/register"><button>Register</button></a>
+      {{/if}}
     </div>
   </nav>

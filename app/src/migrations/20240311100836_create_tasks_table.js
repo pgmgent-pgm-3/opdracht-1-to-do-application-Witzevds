@@ -1,4 +1,4 @@
-const tableName = "task";
+const tableName = "tasks";
 
 export function up(knex) {
   return knex.schema.createTable(tableName, function (table) {
@@ -6,6 +6,7 @@ export function up(knex) {
     table.string("label").notNullable();
     table.string("category").notNullable().defaultTo("default");
     table.boolean("completed").defaultTo(false);
+    table.foreign("category").references("categories.category");
   });
 }
 
